@@ -18,7 +18,14 @@
           placeholder="輸入想找的 instagram 圖片"
         />
       </div>
-
+      <div id="tag"><p>
+          最近熱門搜尋:
+          <a class="tag"  >股災</a>、
+          <a class="tag"  >水果</a>、
+          <a class="tag"  >台北</a>
+        </p></div>
+        
+      </div>
       <div class="imgBox">
         <!-- <div class="imgdiv" style="background-image: url('+imgurl+')"></div> -->
       </div>
@@ -50,6 +57,7 @@
         var loadingPage = document.getElementsByClassName("loading")[0];
         var popPage = document.getElementsByClassName("pop")[0];
         var popImg = document.getElementsByClassName("popImg")[0];
+        var tag = document.getElementsByClassName("tag");
 
         var keyword = ""; // 搜尋的文字
         var edges = null; // 搜尋出來的照片
@@ -73,6 +81,19 @@
         // graphql.hashtag.edge_hashtag_to_media['edges']; //所有照片
 
         //鍵盤按下
+        
+        
+        for (var s = 0; s < tag.length; s++) {
+        tag[s].addEventListener("click",function(){
+          resetData();
+          keyword = this.innerText;
+          console.log(keyword)
+          SearchHashTag(keyword);
+        });
+      }
+
+
+      
         seachBar.addEventListener("keyup", function(e) {
           if (e.keyCode !== 13) return;
           if (this.value == "") return alert("輸入不得為空");

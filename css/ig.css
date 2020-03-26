@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  transition: all 0.5s;
 }
 html,
 body {
@@ -77,11 +78,10 @@ body {
 }
 #app {
   width: 100%;
-  height: 100%;
 }
 #bar {
   width: 100%;
-  height: 100%;
+  padding-top: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,7 +97,21 @@ body {
   background-color: #ddd;
   padding-right: 10px;
   font-size: 20px;
+  display: inline-block;
 }
+#tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tag {
+  color: aqua;
+  cursor: pointer;
+}
+.tag :hover {
+  font-weight: bolder;
+}
+
 .imgBox {
   width: 90%;
   margin: 0 auto;
@@ -116,6 +130,9 @@ body {
   margin: 5px;
   background-position: center;
   background-size: cover;
+}
+.imgBox .imgdiv:hover {
+  transform: scale(1.5);
 }
 a#more {
   cursor: pointer;
